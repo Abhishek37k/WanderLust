@@ -14,9 +14,10 @@
   }
   .filter:hover {
     opacity: 1;
+    box-shadow: inset;
     cursor: pointer;
   }
-  .filter p {
+  .filter a {
     font-size: 0.8rem;
   }
 
@@ -37,43 +38,43 @@
 <div id="filters">
   <div class="filter">
     <div><i class="fa-solid fa-fire"></i></div>
-    <p>Trending</p>
+    <a href="/trending">Trending</a>
   </div>
   <div class="filter">
     <div><i class="fa-solid fa-bed"></i></div>
-    <p>Rooms</p>
+    <a href="/rooms">Rooms</a>
   </div>
   <div class="filter">
     <div><i class="fa-solid fa-mountain-city"></i></div>
-    <p>Iconic Cities</p>
+    <a href="/iconicCities">Iconic Cities</a>
   </div>
   <div class="filter">
     <div><i class="fa-solid fa-mountain"></i></div>
-    <p>Mountain</p>
+    <a href="/mountain">Mountain</a>
   </div>
   <div class="filter">
     <div><i class="fa-brands fa-fort-awesome"></i></div>
-    <p>Forts</p>
+    <a href="/forts">Forts</a>
   </div>
   <div class="filter">
     <div><i class="fa-solid fa-person-swimming"></i></div>
-    <p>Amazing Pools</p>
+    <a href="/amazingPools">Amazing Pools</a>
   </div>
   <div class="filter">
     <div><i class="fa-solid fa-campground"></i></div>
-    <p>Camping</p>
+    <a href="/camping">Camping</a>
   </div>
   <div class="filter">
     <div><i class="fa-regular fa-snowflake"></i></div>
-    <p>Arctic</p>
+    <a href="/arctic">Arctic</a>
   </div>
   <div class="filter">
     <div><i class="fa-solid fa-igloo"></i></div>
-    <p>Domes</p>
+    <a href="/Domes">Domes</a>
   </div>
   <div class="filter">
     <div><i class="fa-solid fa-ship"></i></div>
-    <p>Boats</p>
+    <a href="/boats">Boats</a>
   </div>
 
   <div class="tax-toggle">
@@ -94,7 +95,7 @@
 <!-- <form method="GET" action="/new">
     <button>Create New List</button>
   </form> -->
-<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+<div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1 mt-4">
   <% for (let listing of allListings){%>
   <a href="/listings/<%=listing._id%>" class="listing-link">
     <div class="card col listing-card">

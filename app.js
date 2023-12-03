@@ -51,7 +51,8 @@ app.engine("ejs", ejsMate)
 
 
 const store = MongoStore.create({
-    mongoUrl: dbUrl,
+     mongoUrl: dbUrl,
+    //mongoUrl: MONGO_URL,
     crypto: {
         secret: process.env.SECRET,
     },
@@ -64,7 +65,7 @@ store.on("error", () => {
 
 const sessionOptions = {
     store,
-    secret:process.env.SECRET,
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -114,7 +115,37 @@ app.use((req, res, next) => {
 app.get("/", (req, res) => {
     res.redirect("/listings")
 })
-
+// next code modifying
+app.get("/trending", (req, res) => {
+    res.render("pages/trending.ejs");
+})
+app.get("/rooms", (req, res) => {
+    res.render("pages/rooms.ejs");
+})
+app.get("/iconicCities", (req, res) => {
+    res.render("pages/iconicCities.ejs");
+})
+app.get("/mountain", (req, res) => {
+    res.render("pages/mountain.ejs");
+})
+app.get("/forts", (req, res) => {
+    res.render("pages/forts.ejs");
+})
+app.get("/amazingPools", (req, res) => {
+    res.render("pages/amazingPools.ejs");
+})
+app.get("/camping", (req, res) => {
+    res.render("pages/camping.ejs");
+})
+app.get("/arctic", (req, res) => {
+    res.render("pages/arctic.ejs");
+})
+app.get("/boats", (req, res) => {
+    res.render("pages/boats.ejs");
+})
+app.get("/domes", (req, res) => {
+    res.render("pages/domes.ejs");
+})
 
 
 app.use("/listings", listingRouter);
