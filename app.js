@@ -37,9 +37,9 @@ app.set('view engine', 'ejs');
 const ejsMate = require("ejs-mate")
 port = 8080;
 //console.log(Listing);
-//const MONGO_URL = 'mongodb://127.0.0.1:27017/wanderLust'
+const MONGO_URL = 'mongodb://127.0.0.1:27017/wanderLust'
 
-const dbUrl = process.env.ATLASDB_URL;
+//const dbUrl = process.env.ATLASDB_URL;
 
 
 
@@ -51,8 +51,8 @@ app.engine("ejs", ejsMate)
 
 
 const store = MongoStore.create({
-     mongoUrl: dbUrl,
-    //mongoUrl: MONGO_URL,
+    // mongoUrl: dbUrl,
+    mongoUrl: MONGO_URL,
     crypto: {
         secret: process.env.SECRET,
     },
@@ -148,6 +148,18 @@ app.get("/domes", (req, res) => {
 })
 
 
+app.get("/privacy", (req, res) => {
+    res.send("Privacy Policy");
+});
+app.get("/terms", (req, res) => {
+    res.send("WanderLust terms and Conditions");
+});
+app.get("/about", (req, res) => {
+    res.send("About us ");
+});
+
+
+
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews/", reviewRouter);
 app.use("/", userRouter);
@@ -160,7 +172,7 @@ main().then((res) => {
 }).catch(err => console.log(err));
 
 async function main() {
-    await mongoose.connect(dbUrl);
+    await mongoose.connect(MONGO_URL);
 }
 
 // app.get("/testListing", async (req, res) => {
