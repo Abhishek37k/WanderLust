@@ -52,7 +52,7 @@ app.engine("ejs", ejsMate)
 
 const store = MongoStore.create({
      mongoUrl: dbUrl,
-    mongoUrl: MONGO_URL,
+    //mongoUrl: MONGO_URL,
     crypto: {
         secret: process.env.SECRET,
     },
